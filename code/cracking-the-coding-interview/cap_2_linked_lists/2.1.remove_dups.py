@@ -5,9 +5,6 @@ from code.data_structures.linkedlist.singly_linkedlist import LinkedList
   Time efficiency: O(N)
 '''
 def removeDups(linked_list):
-  if linked_list.size() == 0:
-    return -1
-  
   node = linked_list.head
   buffer = []
   buffer.append(node)
@@ -22,27 +19,29 @@ def removeDups(linked_list):
   return linked_list
 
 def removeDupsWithoutBuffer(linked_list):
-  if linked_list.size() == 0:
-    return -1
-  
-  new_linked_list = LinkedList() 
   node = linked_list.head
 
-  while node:
-    
+  if(linked_list.countOccurences(node.data) > 1):
+    linked_list.deleteByIndex(None, node)
+  
+  while node.next:
+    count = linked_list.countOccurences(node.next.data)    
+    if count > 1:
+      linked_list.deleteByIndex(node, node.next)
+    node = node.next
 
   return linked_list
 
 def tests():
   ll = LinkedList()
-  ll.insert_tail(4)
-  ll.insert_tail(3)
-  ll.insert_tail(2)
-  ll.insert_tail(5)
-  ll.insert_tail(2)
-  ll.insert_tail(4)
+  ll.insert(4)
+  ll.insert(3)
+  ll.insert(2)
+  ll.insert(5)
+  ll.insert(2)
+  ll.insert(4)
   assert ll.prettify() == [(4, 3), (3, 2), (2, 5), (5, 2), (2, 4), (4, None)]
-  ll = removeDups(ll)
+  ll = removeDupsWithoutBuffer(ll)
   assert ll.prettify() == [(3, 5), (5, 2), (2, 4), (4, None)]
 
 if __name__ == "__main__":

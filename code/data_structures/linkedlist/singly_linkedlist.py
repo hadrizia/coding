@@ -4,7 +4,7 @@ class LinkedList(object):
   def __init__(self, head = None):
     self.head = head
 
-  def insert_tail(self, data):
+  def insert(self, data):
     new_node = Node(data)
     node = self.head
 
@@ -14,7 +14,6 @@ class LinkedList(object):
     else:
       while node.next:
         node = node.next
-      
       node.next = new_node
 
   def search(self, data):
@@ -52,22 +51,24 @@ class LinkedList(object):
       return head
     
     else:
-      while node:
-        if node.data == data:
+      while node.next:
+        if node.next.data == data:
           previous = node
           next = node.next
-          deleted_node = node
+          deleted_node = node.next
           self.deleteByIndex(previous, next)
           return deleted_node
         node = node.next
       raise ValueError("Data is not in list")
 
   def deleteByIndex(self, previous, node):
-    previous.next = node.next
+    if node.data == self.head.data:
+      self.head = node.next
+    else:
+      previous.next = node.next    
 
   def countOccurences(self, data):
-    head = self.head
-    node = head
+    node = self.head
     occurences = 0
 
     while node:
@@ -78,12 +79,11 @@ class LinkedList(object):
     return occurences
 
   def prettify(self):
-  node = self.head
-  array = []
-  
-  while node.next:
-    array.append((node.data, node.next.data))
-    node = node.next
-  array.append((node.data, node.next))
-  return array
+    node = self.head
+    array = []
     
+    while node.next:
+      array.append((node.data, node.next.data))
+      node = node.next
+    array.append((node.data, node.next))
+    return array
