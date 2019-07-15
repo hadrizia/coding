@@ -25,5 +25,5 @@ def tests():
   assert isUnique('IsUnqe') == True
   assert isUnique('Marie Jul') == True
 
-tests()
-
+if __name__ == "__main__":
+  tests()

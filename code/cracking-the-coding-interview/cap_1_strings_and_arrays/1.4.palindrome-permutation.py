@@ -26,3 +26,6 @@ def tests():
   assert palindromePermutation("Tact Coa") == True
   assert palindromePermutation("Tact hCoa") == False
   assert palindromePermutation("Hadrizia") == False
+
+if __name__ == "__main__":
+  tests()

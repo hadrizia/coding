@@ -29,5 +29,6 @@ def tests():
   assert checkPermutation("gOD", "dOG") == False
   assert checkPermutation("gOd", "dOgg") == False
 
-tests()
+if __name__ == "__main__":
+  tests()
   

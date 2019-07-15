@@ -60,3 +60,6 @@ def tests():
     [6, 0, 8]
   ]
   assert zeroMatrix(matrix) == expected_matrix
+
+if __name__ == "__main__":
+  tests()

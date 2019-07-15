@@ -18,3 +18,6 @@ def tests():
   assert stringRotation('sapato', 'satopa') == False
   assert stringRotation('waterbottle', 'erbottlewar') == True
   assert stringRotation('waterbottle', 'botterlewar') == False
+
+if __name__ == "__main__":
+  tests()

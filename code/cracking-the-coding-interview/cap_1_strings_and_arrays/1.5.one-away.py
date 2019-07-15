@@ -53,4 +53,5 @@ def tests():
   assert checkAway('pale', 'bale') == True
   assert checkAway('pale', 'bake') == False
 
-tests()
+if __name__ == "__main__":
+  tests()

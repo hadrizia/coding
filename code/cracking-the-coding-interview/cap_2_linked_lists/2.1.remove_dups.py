@@ -1,4 +1,4 @@
-from singly_linkedlist import LinkedList
+from code.data_structures.linkedlist.singly_linkedlist import LinkedList
 
 '''
   Given that N = linked_list.size(),
@@ -12,12 +12,24 @@ def removeDups(linked_list):
   buffer = []
   buffer.append(node)
 
-  while node.next:
-    if node.next.data not in buffer:
-      buffer.append(node.next.data)
+  while node:
+    if node.data not in buffer:
+      buffer.append(node.data)
     else:
-      linked_list.delete(node.data)    
+      linked_list.delete(node.data)
     node = node.next
+
+  return linked_list
+
+def removeDupsWithoutBuffer(linked_list):
+  if linked_list.size() == 0:
+    return -1
+  
+  new_linked_list = LinkedList() 
+  node = linked_list.head
+
+  while node:
+    
 
   return linked_list
 
@@ -32,3 +44,6 @@ def tests():
   assert ll.prettify() == [(4, 3), (3, 2), (2, 5), (5, 2), (2, 4), (4, None)]
   ll = removeDups(ll)
   assert ll.prettify() == [(3, 5), (5, 2), (2, 4), (4, None)]
+
+if __name__ == "__main__":
+  tests()

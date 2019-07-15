@@ -20,3 +20,6 @@ def tests():
   assert stringCompression('aaaabbbbcccc') == 'a4b4c4'
   assert stringCompression('abcde') == 'abcde'
   assert stringCompression('aaaabbbbccccAA') == 'a4b4c4A2'
+
+if __name__ == "__main__":
+  tests()

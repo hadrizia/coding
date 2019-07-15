@@ -62,3 +62,6 @@ def tests():
   assert rotateMatrix(matrix_3x3) == rotated_matrix_3x3
   assert rotateMatrix(matrix_4x4) == rotated_matrix_4x4
   assert rotateMatrix([[]]) == False
+
+if __name__ == "__main__":
+  tests()

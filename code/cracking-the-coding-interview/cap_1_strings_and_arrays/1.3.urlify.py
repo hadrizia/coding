@@ -21,4 +21,5 @@ def tests():
   assert urlify("Mr John Smith    ", 14) == "Mr%20John%20Smith%20"
   assert urlify("MrJohnSmith", 11) == "MrJohnSmith"
 
-tests()
+if __name__ == "__main__":
+  tests()
