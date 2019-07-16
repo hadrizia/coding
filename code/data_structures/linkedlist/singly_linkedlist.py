@@ -75,8 +75,30 @@ class LinkedList(object):
       if node.data == data:
         occurences += 1
       node = node.next
-    
     return occurences
+
+  def getKthToLast(self, k):
+    node = self.head
+    last = 0
+    
+    # Get the index of last element
+    while node.next:
+      node = node.next
+      last += 1
+
+    # Kth to last
+    kth_to_last = last - k
+
+    # Search for kth_to_last
+    index = 0
+    node = self.head
+    while index != kth_to_last and node.next:
+      node = node.next
+      index += 1
+
+    if index == kth_to_last:
+      return node
+    raise ValueError("The Kth number does not exists!")    
 
   def prettify(self):
     node = self.head
