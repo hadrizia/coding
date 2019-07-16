@@ -1,7 +1,11 @@
 from code.data_structures.linkedlist.singly_linkedlist import LinkedList
-
-def returnKthToLast(linked_list, k):
-  kth_to_last = linked_list
+'''
+  Given that N = len(linkedlist) and k = a random index:
+    N for get the index of last element + N for search the (index_last_element - k)th node
+    O(2 * N) = O(N)
+'''
+def returnKthToLast(linkedlist, k):
+  kth_to_last = linkedlist
   return kth_to_last.getKthToLast(k)
 
 def tests():

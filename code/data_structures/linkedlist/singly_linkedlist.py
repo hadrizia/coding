@@ -65,8 +65,9 @@ class LinkedList(object):
     if node.data == self.head.data:
       self.head = node.next
     else:
-      previous.next = node.next    
+      previous.next = node.next 
 
+  # The next functions are related to questions from Cracking the Coding Interview   
   def countOccurences(self, data):
     node = self.head
     occurences = 0
@@ -98,7 +99,21 @@ class LinkedList(object):
 
     if index == kth_to_last:
       return node
-    raise ValueError("The Kth number does not exists!")    
+    raise ValueError("The Kth number does not exists!") 
+
+  def deleteMiddleNode(self, node):
+    next = node.next
+    node.data = next.data
+    node.next = next.next
+
+  def partition(self, data):
+    node = self.head
+    while node.next:
+      if node.data >= data:
+        
+
+
+
 
   def prettify(self):
     node = self.head
