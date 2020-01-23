@@ -16,6 +16,18 @@ class LinkedList(object):
         node = node.next
       node.next = new_node
 
+  def insertToHead(self, data):
+    new_node = Node(data)
+
+    if self.size() == 0:
+      self.head = new_node
+    
+    else:
+      new_node.next = self.head
+      self.head = new_node
+
+
+
   def search(self, data):
     head = self.head
     node = head
@@ -100,20 +112,6 @@ class LinkedList(object):
     if index == kth_to_last:
       return node
     raise ValueError("The Kth number does not exists!") 
-
-  def deleteMiddleNode(self, node):
-    next = node.next
-    node.data = next.data
-    node.next = next.next
-
-  def partition(self, data):
-    node = self.head
-    while node.next:
-      if node.data >= data:
-        
-
-
-
 
   def prettify(self):
     node = self.head
