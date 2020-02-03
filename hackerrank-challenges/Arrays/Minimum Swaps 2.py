@@ -1,43 +1,18 @@
 #!/bin/python
 
-import math
-import os
-import random
-import re
-import sys
-
-swaps = 0
-
-def countSwaps():
-  global swaps
-  swaps += 1
-
-
-def partition(arr, low, high): 
-    i = (low - 1)         # index of smaller element 
-    pivot = arr[high]     # pivot 
-  
-    for j in range(low , high): 
-      if   arr[j] <= pivot: 
-        i = i + 1 
-        arr[i], arr[j] = arr[j], arr[i]
-        countSwaps() 
-        
-  
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
-      
-    return i + 1 
- 
-def quickSort(arr, low, high): 
-    if low < high: 
-      pi = partition(arr, low, high)
-      quickSort(arr, low, pi - 1) 
-      quickSort(arr, pi + 1, high)
-
 # Complete the minimumSwaps function below.
 def minimumSwaps(arr):
-  quickSort(arr, 0, len(arr) - 1)
-  print swaps
+  numSwaps = 0
+  i = 0
+  while(i < len(arr) - 1):
+    if arr[i] != i + 1:
+      tmp = arr[i]
+      arr[i], arr[tmp - 1] = arr[tmp - 1], arr[i]
+      print arr
+      numSwaps += 1
+    else:
+      i += 1
+  return numSwaps
 
 
 if __name__ == '__main__':
@@ -48,6 +23,7 @@ if __name__ == '__main__':
     arr = map(int, raw_input().rstrip().split())
 
     res = minimumSwaps(arr)
+    print res
 
     # fptr.write(str(res) + '\n')
 
