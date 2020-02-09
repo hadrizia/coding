@@ -2,7 +2,7 @@ def countLettersOccurences(string):
   dictionary = {}
   for letter in  string:
     if letter in dictionary:
-      dictionary[letter] = dictionary[letter] + 1
+      dictionary[letter] += 1
     else:
       dictionary[letter] = 1
   return dictionary
