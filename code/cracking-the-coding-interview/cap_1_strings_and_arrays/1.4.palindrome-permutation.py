@@ -4,26 +4,26 @@
     Memory efficiency: O(2 * n) = O(n) 
 '''
 def palindromePermutation(string):
-  string = string.lower().replace(' ', '')
   dictionary = {}
-  for letter in string:
-    if letter in dictionary:
-      dictionary[letter] = dictionary[letter] + 1
-  
-    else:
+  for letter in string.lower():
+    if letter not in dictionary:
       dictionary[letter] = 1
+    else:
+      dictionary[letter] += 1
   
   center_letter = 0
-  for count in dictionary:
-    if count == 1:
+  for key in dictionary:
+    if key != ' ' and dictionary[key] % 2 != 0:
       center_letter += 1
+      if center_letter > 1:
+        return False
   
-  return center_letter <= 1
+  return True
 
 
 def tests():
   assert palindromePermutation("Taco cat") == True
-  assert palindromePermutation("Tact Coa") == True
+  assert palindromePermutation("Tact Caa") == True
   assert palindromePermutation("Tact hCoa") == False
   assert palindromePermutation("Hadrizia") == False
 
