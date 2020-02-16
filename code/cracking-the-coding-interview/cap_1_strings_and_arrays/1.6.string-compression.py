@@ -7,7 +7,7 @@
 def stringCompression(string):
   occurrences = 0
   compressedString = ''
-  for i in xrange(len(string)):
+  for i in range(len(string)):
     occurrences += 1
     if (i + 1 >= len(string)) or string[i] != string[i + 1]:
       compressedString += string[i] + str(occurrences)

@@ -3,7 +3,10 @@ def isSubstring(str1, str2):
     return True
   return False
 
-
+'''
+  Time efficiency: O(len(string2))
+  Memory efficiency: (O(1)))
+'''
 def stringRotation(str1, str2):
   if len(str1) != len(str2):
     return False
@@ -16,7 +19,7 @@ def stringRotation(str1, str2):
 def tests():
   assert stringRotation('sapato', 'tosapa') == True
   assert stringRotation('sapato', 'satopa') == False
-  assert stringRotation('waterbottle', 'erbottlewar') == True
+  assert stringRotation('waterbottle', 'erbottlewat') == True
   assert stringRotation('waterbottle', 'botterlewar') == False
 
 if __name__ == "__main__":

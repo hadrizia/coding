@@ -1,7 +1,7 @@
 '''
   Given a matrix NxN,
-    Time efficiency: O(N^2)
-    Memory efficiency: O(1)
+  Time efficiency: O((N / 2) * N) = O(N^2)
+  Memory efficiency: O(1)
 '''
 def rotateMatrix(matrix):
   n = len(matrix)
