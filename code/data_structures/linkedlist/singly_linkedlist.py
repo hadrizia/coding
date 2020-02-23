@@ -16,6 +16,17 @@ class LinkedList(object):
         node = node.next
       node.next = new_node
 
+  def insertNode(self, new_node):
+    node = self.head
+
+    if self.size() == 0:
+      self.head = new_node
+    
+    else:
+      while node.next:
+        node = node.next
+      node.next = new_node
+
   def insertToHead(self, data):
     new_node = Node(data)
 
@@ -122,3 +133,9 @@ class LinkedList(object):
       node = node.next
     array.append((node.data, node.next))
     return array
+
+  def tail(self):
+    node = self.head
+    while node.next:
+      node = node.next
+    return node
