@@ -8,9 +8,10 @@ class StackInArray(object):
   def push(self, stack_num, data):
     if not self.is_full(stack_num):
       last_index_stack = stack_num * self.stacks_size - 1
+      index_top = self.index_of_top(stack_num)
       if self.size(stack_num) > 0:
-        for i in range(last_index_stack - self.index_of_top(stack_num)):
-          self.array[last_index_stack - i] = self.array[last_index_stack - i - 1]
+        for i in range(last_index_stack, index_top, -1):
+          self.array[i] = self.array[i - 1]
       self.array[self.index_of_top(stack_num)] = data
   
   def pop(self, stack_num):
