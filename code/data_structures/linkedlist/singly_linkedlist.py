@@ -13,7 +13,12 @@ class LinkedList(object):
     
     else:
       while node.next:
-        node = node.next
+        node = node.nextl1 = LinkedList()
+  l1.insert(2)
+  l1.insert(3)
+  l1.insert(4)
+  l1.insert(5)
+  l1.insert(7)
       node.next = new_node
 
   def insertNode(self, new_node):
