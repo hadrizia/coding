@@ -33,12 +33,12 @@ class Stack(object):
     if not self.is_empty():
       aux_stack = Stack()
       while not self.is_empty():
-        aux_stack.push(self.pop())
+        aux_stack.push(self.pop().data)
       
       bottom = aux_stack.pop()
       
       while not aux_stack.is_empty():
-        self.push(aux_stack.pop())
+        self.push(aux_stack.pop().data)
       
       return bottom
       

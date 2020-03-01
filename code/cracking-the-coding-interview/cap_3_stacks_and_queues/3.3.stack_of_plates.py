@@ -38,7 +38,7 @@ class SetOfStacks(object):
       deleted_node = indexed_stack.pop()
       if indexed_stack.size() == self.capacity_of_stacks - 1: 
         for i in range(index, len(self.stacks) - 1):
-          self.stacks[i].push(self.stacks[i + 1].remove_bottom())
+          self.stacks[i].push(self.stacks[i + 1].remove_bottom().data)
           if self.stacks[i + 1].is_empty():
             self.stacks.remove(self.stacks[i + 1])
             break
@@ -62,6 +62,9 @@ def tests():
   assert len(set_of_stacks.stacks) == 3
   set_of_stacks.pop_at(0)
   assert len(set_of_stacks.stacks) == 2
+
+  assert set_of_stacks.stacks[0].top.data == 3
+  assert set_of_stacks.stacks[1].top.data == 5
 
 
 if __name__ == "__main__":
