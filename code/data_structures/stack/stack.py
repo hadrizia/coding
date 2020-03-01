@@ -20,14 +20,34 @@ class Stack(object):
   
   def is_empty(self):
     return self.top == None
+  
+  def size(self):
+    node = self.top
+    count = 0
+    while node:
+      count += 1
+      node = node.next
+    return count
+
+  def remove_bottom(self):
+    if not self.is_empty():
+      aux_stack = Stack()
+      while not self.is_empty():
+        aux_stack.push(self.pop())
+      
+      bottom = aux_stack.pop()
+      
+      while not aux_stack.is_empty():
+        self.push(aux_stack.pop())
+      
+      return bottom
+      
 
   def prettify(self):
     node = self.top
     array = []
-
-    while node.next:
-      print(node.next.data)
-      array.append((node.data, node.next.data))
+    
+    while node:
+      array.append(node.data)
       node = node.next
-    array.append((node.data, node.next))
     return array
