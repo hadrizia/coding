@@ -13,12 +13,7 @@ class LinkedList(object):
     
     else:
       while node.next:
-        node = node.nextl1 = LinkedList()
-  l1.insert(2)
-  l1.insert(3)
-  l1.insert(4)
-  l1.insert(5)
-  l1.insert(7)
+        node = node.next
       node.next = new_node
 
   def insertNode(self, new_node):
@@ -94,6 +89,13 @@ class LinkedList(object):
       self.head = node.next
     else:
       previous.next = node.next 
+  
+  def deleteHead(self):
+    if not self.size() == 0:
+      deleted_head = self.head
+      self.head = self.head.next
+      return deleted_head
+
 
   # The next functions are related to questions from Cracking the Coding Interview   
   def countOccurences(self, data):
@@ -144,3 +146,6 @@ class LinkedList(object):
     while node.next:
       node = node.next
     return node
+
+  def is_empty(self):
+    return self.size() == 0

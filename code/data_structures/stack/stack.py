@@ -41,6 +41,17 @@ class Stack(object):
         self.push(aux_stack.pop().data)
       
       return bottom
+    
+  def push_in_order(self, value):
+    if self.is_empty():
+      self.push(value)
+    else:
+      aux = Stack()
+      while not self.is_empty() and self.top.data < value:
+        aux.push(self.pop().data)
+      self.push(value)
+      while not aux.is_empty():
+        self.push(aux.pop().data)
       
 
   def prettify(self):
