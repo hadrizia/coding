@@ -149,3 +149,9 @@ class LinkedList(object):
 
   def is_empty(self):
     return self.size() == 0
+
+  def addAll(self, ll):
+    node = ll.head
+    while node.next:
+      self.insertNode(node)
+      node = node.next
