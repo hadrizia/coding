@@ -16,7 +16,7 @@ def heap_operations(num_op):
 
   for _ in range(num_op):
     op = input()
-    if op == "removeMin":
+    if op == "removeMin": # O(logN)
       if heap:
         heapq.heappop(heap)
       else:
@@ -27,12 +27,12 @@ def heap_operations(num_op):
       op, n = op.split(" ")
       n = int(n)
 
-      if op == "insert":
+      if op == "insert": # O(logN)
         heapq.heappush(heap, n)
         ops.append(op + " " + str(n))
 
-      elif op == "getMin":
-        if not heap:
+      elif op == "getMin": 
+        if not heap: # O(logN)
           heapq.heappush(heap, n)
           ops.append("insert " + str(n))
 
@@ -40,11 +40,11 @@ def heap_operations(num_op):
           pass
 
         else:
-          while heap and heap[0] < n:
-            heapq.heappop(heap)
+          while heap and heap[0] < n: # O(N * logN)
+            heapq.heappop(heap) 
             ops.append("removeMin")
 
-          if not heap or heap[0] < n:
+          if not heap or heap[0] < n: # O(logN)
             heapq.heappush(heap, n)
             ops.append("insert " + str(n))
         ops.append(op + " " + str(n))
